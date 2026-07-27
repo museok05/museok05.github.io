@@ -1,0 +1,466 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Museok Seo is an Electrical Engineering student at the University of British Columbia."
+    />
+    <meta name="theme-color" content="#f4f3ed" />
+    <meta property="og:title" content="Museok Seo | Electrical Engineering" />
+    <meta
+      property="og:description"
+      content="Projects, experience, and writing by Museok Seo, an Electrical Engineering student at UBC."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="assets/hero-background.jpg" />
+    <title>Museok Seo | Electrical Engineering</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css?v=6" />
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js",
+          "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/"
+        }
+      }
+    </script>
+    <script src="site-data.js?v=7" defer></script>
+    <script src="script.js?v=5" defer></script>
+    <script type="module" src="step-viewer.js?v=7"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+
+    <header class="site-header">
+      <a class="wordmark" href="#home" aria-label="Museok Seo, home">MS</a>
+      <nav class="desktop-nav" aria-label="Primary navigation">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#blog">Blog</a>
+        <a href="#skills">Skills</a>
+      </nav>
+      <a
+        class="header-link"
+        href="https://github.com/museok05"
+        target="_blank"
+        rel="noreferrer"
+      >
+        GitHub
+        <svg class="icon" aria-hidden="true" viewBox="0 0 24 24">
+          <path d="M7 7h10v10M7 17 17 7" />
+        </svg>
+      </a>
+      <button
+        class="icon-button menu-button"
+        type="button"
+        aria-label="Open navigation"
+        aria-expanded="false"
+        aria-controls="mobile-nav"
+        title="Menu"
+      >
+        <svg class="icon menu-icon" aria-hidden="true" viewBox="0 0 24 24">
+          <path d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+      <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#blog">Blog</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main id="main-content">
+      <section class="hero" id="home" aria-labelledby="hero-title">
+        <div class="hero-scrim" aria-hidden="true"></div>
+        <div class="hero-layout">
+          <div class="headshot">
+            <span class="headshot-fallback" aria-hidden="true">MS</span>
+            <img
+              class="headshot-image"
+              src="assets/headshot.jpg"
+              alt="Portrait of Museok Seo"
+            />
+            <span class="headshot-accent" aria-hidden="true"></span>
+          </div>
+          <div class="hero-copy">
+            <p class="eyebrow">Electrical Engineering | UBC</p>
+            <h1 id="hero-title">Museok Seo</h1>
+            <p class="hero-intro">
+              An electrical engineering student learning through design,
+              experimentation, and hands-on projects.
+            </p>
+            <div class="hero-actions">
+              <a class="text-link" href="#projects">
+                View selected work
+                <svg class="icon" aria-hidden="true" viewBox="0 0 24 24">
+                  <path d="M12 5v14M19 12l-7 7-7-7" />
+                </svg>
+              </a>
+              <a
+                class="text-link text-link-muted"
+                href="assets/museok-seo-resume.pdf"
+                id="resume-link"
+                data-resume-path="assets/museok-seo-resume.pdf"
+                aria-disabled="true"
+              >
+                <span>Resume coming soon</span>
+                <svg class="icon" aria-hidden="true" viewBox="0 0 24 24">
+                  <path d="M12 3v12M7 10l5 5 5-5M5 21h14" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section about-section" id="about" aria-labelledby="about-title">
+        <div class="section-heading reveal">
+          <p class="section-number">01</p>
+          <h2 id="about-title">About</h2>
+        </div>
+        <div class="about-copy reveal">
+          <p class="lead">
+            I'm Museok, an Electrical Engineering student at the University of
+            British Columbia.
+          </p>
+          <p>
+            This portfolio documents the projects I build, the experience I gain,
+            and the ideas I learn along the way. I'm developing my technical
+            foundation while exploring how thoughtful engineering can solve useful,
+            real-world problems.
+          </p>
+        </div>
+        <dl class="quick-facts reveal">
+          <div>
+            <dt>Education</dt>
+            <dd>University of British Columbia</dd>
+          </div>
+          <div>
+            <dt>Studying</dt>
+            <dd>Electrical Engineering</dd>
+          </div>
+          <div>
+            <dt>Interested in</dt>
+            <dd>PCB design &amp; power electronics</dd>
+          </div>
+        </dl>
+      </section>
+
+      <section class="projects-section" id="projects" aria-labelledby="projects-title">
+        <div class="projects-inner">
+          <div class="section-heading projects-heading reveal">
+            <p class="section-number">02</p>
+            <h2 id="projects-title">Selected projects</h2>
+            <p>Engineering work, experiments, and things I'm building.</p>
+          </div>
+
+          <div class="project-showcase reveal">
+            <div
+              class="project-stage"
+              id="project-stage"
+              tabindex="0"
+              role="region"
+              aria-roledescription="carousel"
+              aria-label="Selected projects"
+            >
+              <button
+                class="icon-button carousel-arrow carousel-arrow-left"
+                id="project-previous"
+                type="button"
+                aria-label="Previous project"
+                title="Previous project"
+              >
+                <svg class="icon" aria-hidden="true" viewBox="0 0 24 24">
+                  <path d="m15 18-6-6 6-6" />
+                </svg>
+              </button>
+              <div class="project-track" id="project-orbit"></div>
+              <button
+                class="icon-button carousel-arrow carousel-arrow-right"
+                id="project-next"
+                type="button"
+                aria-label="Next project"
+                title="Next project"
+              >
+                <svg class="icon" aria-hidden="true" viewBox="0 0 24 24">
+                  <path d="m9 18 6-6-6-6" />
+                </svg>
+              </button>
+              <p class="project-progress" id="project-counter" aria-live="polite"></p>
+            </div>
+
+            <div class="project-console">
+              <div class="project-active-copy" aria-live="polite">
+                <p id="active-project-category" class="project-category"></p>
+                <h3 id="active-project-title"></h3>
+                <p id="active-project-summary"></p>
+              </div>
+              <div class="project-controls">
+                <button class="project-open-button" id="open-active-project" type="button">
+                  View project
+                  <svg class="icon" aria-hidden="true" viewBox="0 0 24 24">
+                    <path d="M7 7h10v10M7 17 17 7" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="section experience-section"
+        id="experience"
+        aria-labelledby="experience-title"
+      >
+        <div class="section-heading reveal">
+          <p class="section-number">03</p>
+          <h2 id="experience-title">Experience</h2>
+        </div>
+        <div class="timeline">
+          <article class="timeline-item reveal">
+            <div class="timeline-marker" aria-hidden="true"></div>
+            <p class="timeline-date">Current</p>
+            <div>
+              <h3>UBC Solar</h3>
+              <p class="timeline-role">Student design team</p>
+              <p>
+                Add your sub-team, responsibilities, technical contributions, and
+                what you are learning with UBC Solar.
+              </p>
+            </div>
+          </article>
+          <article class="timeline-item reveal">
+            <div class="timeline-marker" aria-hidden="true"></div>
+            <p class="timeline-date">Current</p>
+            <div>
+              <h3>University of British Columbia</h3>
+              <p class="timeline-role">Electrical Engineering</p>
+              <p>
+                Building a foundation in electrical engineering through coursework,
+                labs, team projects, and independent learning.
+              </p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="blog-section" id="blog" aria-labelledby="blog-title">
+        <div class="blog-inner">
+          <div class="section-heading reveal">
+            <p class="section-number">04</p>
+            <h2 id="blog-title">Field notes</h2>
+            <p>Project reflections, engineering lessons, and ideas worth keeping.</p>
+          </div>
+          <div class="blog-feature reveal">
+            <p class="blog-index">First note</p>
+            <div>
+              <h3>Writing from the work</h3>
+              <p>
+                Reflections on projects and experiences will live here as the
+                portfolio grows.
+              </p>
+            </div>
+            <a class="circle-link" href="blog.html" aria-label="Open the blog">
+              <svg class="icon" aria-hidden="true" viewBox="0 0 24 24">
+                <path d="M7 7h10v10M7 17 17 7" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="skills-section" id="skills" aria-labelledby="skills-title">
+        <div class="skills-heading reveal">
+          <p class="section-number">05</p>
+          <div>
+            <h2 id="skills-title">Tools &amp; skills</h2>
+            <p>
+              Languages and engineering tools I use to move from concept to
+              tested hardware.
+            </p>
+          </div>
+          <button
+            class="icon-button skills-motion-toggle"
+            id="skills-motion-toggle"
+            type="button"
+            aria-label="Pause skills carousel"
+            aria-pressed="false"
+            title="Pause skills carousel"
+          >
+            <svg class="icon" aria-hidden="true" viewBox="0 0 24 24">
+              <path d="M9 5v14M15 5v14" />
+            </svg>
+          </button>
+        </div>
+        <div class="skills-marquee reveal" aria-hidden="true">
+          <div class="skills-track" id="skills-track"></div>
+        </div>
+        <ul class="visually-hidden" id="skills-accessible-list"></ul>
+      </section>
+
+      <section class="contact-section" id="contact" aria-labelledby="contact-title">
+        <div class="contact-inner">
+          <div>
+            <p class="eyebrow reveal">Get in touch</p>
+            <h2 id="contact-title" class="reveal">Let's connect.</h2>
+            <p class="contact-intro reveal">
+              Find my work online or reach out about engineering, projects, and
+              opportunities.
+            </p>
+          </div>
+          <div class="contact-list reveal">
+            <a
+              href="https://github.com/museok05"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <span>GitHub</span>
+              <strong>@museok05</strong>
+              <svg class="icon" aria-hidden="true" viewBox="0 0 24 24">
+                <path d="M7 7h10v10M7 17 17 7" />
+              </svg>
+            </a>
+            <span class="contact-placeholder">
+              <span>LinkedIn</span>
+              <strong>Add profile URL</strong>
+              <svg class="icon" aria-hidden="true" viewBox="0 0 24 24">
+                <path d="M7 7h10v10M7 17 17 7" />
+              </svg>
+            </span>
+            <span class="contact-placeholder">
+              <span>Email</span>
+              <strong>Add email address</strong>
+              <svg class="icon" aria-hidden="true" viewBox="0 0 24 24">
+                <path d="M7 7h10v10M7 17 17 7" />
+              </svg>
+            </span>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>&copy; <span id="current-year"></span> Museok Seo</p>
+      <div>
+        <a href="blog.html">Blog</a>
+        <a href="#home">
+          Back to top
+          <svg class="icon" aria-hidden="true" viewBox="0 0 24 24">
+            <path d="m18 15-6-6-6 6" />
+          </svg>
+        </a>
+      </div>
+    </footer>
+
+    <dialog
+      class="project-dialog"
+      id="project-dialog"
+      aria-labelledby="dialog-title"
+    >
+      <button
+        class="icon-button dialog-close"
+        id="dialog-close"
+        type="button"
+        aria-label="Close project details"
+        title="Close"
+      >
+        <svg class="icon" aria-hidden="true" viewBox="0 0 24 24">
+          <path d="M18 6 6 18M6 6l12 12" />
+        </svg>
+      </button>
+
+      <section class="step-viewer" id="step-viewer" aria-label="Interactive 3D model">
+        <canvas
+          id="step-canvas"
+          aria-label="Interactive three-dimensional project model"
+        ></canvas>
+        <div class="step-toolbar">
+          <p class="step-status" id="step-viewer-status">Interactive 3D preview</p>
+          <div class="step-actions">
+            <button
+              class="icon-button step-action"
+              id="step-reset"
+              type="button"
+              aria-label="Reset 3D view"
+              title="Reset 3D view"
+            >
+              <svg class="icon" aria-hidden="true" viewBox="0 0 24 24">
+                <path d="M3 12a9 9 0 1 0 3-6.7L3 8" />
+                <path d="M3 3v5h5" />
+              </svg>
+            </button>
+            <label class="step-file-button" for="step-file-input">
+              Open STEP
+              <svg class="icon" aria-hidden="true" viewBox="0 0 24 24">
+                <path d="M12 16V4M7 9l5-5 5 5M5 20h14" />
+              </svg>
+            </label>
+            <input
+              id="step-file-input"
+              type="file"
+              accept=".step,.stp,model/step"
+              hidden
+            />
+          </div>
+        </div>
+        <div class="step-loading" id="step-loading" hidden>
+          <span class="step-spinner" aria-hidden="true"></span>
+          <p>Loading 3D model</p>
+        </div>
+        <p class="step-error" id="step-error" hidden></p>
+      </section>
+
+      <div class="dialog-body">
+        <div class="dialog-media">
+          <img id="dialog-image" src="" alt="" />
+        </div>
+        <article class="dialog-content">
+          <p class="project-category" id="dialog-category"></p>
+          <h2 id="dialog-title"></h2>
+          <p class="dialog-summary" id="dialog-summary"></p>
+          <ul class="tag-list" id="dialog-tags" aria-label="Project technologies"></ul>
+          <div class="dialog-detail">
+            <section>
+              <h3>Challenge</h3>
+              <p id="dialog-challenge"></p>
+            </section>
+            <section>
+              <h3>Approach</h3>
+              <p id="dialog-approach"></p>
+            </section>
+            <section>
+              <h3>Outcome</h3>
+              <p id="dialog-outcome"></p>
+            </section>
+          </div>
+          <div class="dialog-links">
+            <a id="dialog-project-link" href="" target="_blank" rel="noreferrer">
+              Live project
+              <svg class="icon" aria-hidden="true" viewBox="0 0 24 24">
+                <path d="M7 7h10v10M7 17 17 7" />
+              </svg>
+            </a>
+            <a id="dialog-github-link" href="" target="_blank" rel="noreferrer">
+              Source code
+              <svg class="icon" aria-hidden="true" viewBox="0 0 24 24">
+                <path d="M7 7h10v10M7 17 17 7" />
+              </svg>
+            </a>
+          </div>
+        </article>
+      </div>
+    </dialog>
+  </body>
+</html>

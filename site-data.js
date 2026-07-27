@@ -27,9 +27,13 @@ window.PORTFOLIO_DATA = {
       title: "Driver Dashboard",
       category: "PCB/Electronics Design",
       year: "2025-2026",
-      coverImage: "assets/Dashboard_Integration.png",
+      coverImage: "assets/Dashboard_PCB.png",
       coverAlt: "Driver Dashboard prototype integrated with its steering controls",
-      gallery: [
+      gallery: [ {
+          src: "assets/Dashboard_PCB.png",
+          alt: "Fully assembled Driver Dashboard PCB with Display powered on",
+          caption: "Driver Dashboard PCB",
+        },
         {
           src: "assets/Dashboard_Integration.png",
           alt: "Driver Dashboard prototype integrated with its steering controls",

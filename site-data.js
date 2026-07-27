@@ -26,7 +26,7 @@ window.PORTFOLIO_DATA = {
       title: "Driver Dashboard",
       category: "PCB/Electronics Design",
       year: "2025-2026",
-      image: "assets/project-01.jpg",
+      image: "assets/Dashboard_Integration.png",
       modelFile: "assets/models/E_PAS_DRD_2.0.glb",
       stepFile: "",
       alt: "Solar energy electronics prototype on a lab bench",

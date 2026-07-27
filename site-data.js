@@ -1,6 +1,7 @@
 /*
  * Edit this file to update the project carousel, detail modal, and skills loop.
- * Keep media in /assets and use relative paths such as assets/project-01.jpg.
+ * Keep media in /assets. Each project has one carousel cover and a separate
+ * gallery containing any number of detail images.
  */
 window.PORTFOLIO_DATA = {
   skills: [
@@ -26,10 +27,17 @@ window.PORTFOLIO_DATA = {
       title: "Driver Dashboard",
       category: "PCB/Electronics Design",
       year: "2025-2026",
-      image: "assets/Dashboard_Integration.png",
+      coverImage: "assets/Dashboard_Integration.png",
+      coverAlt: "Driver Dashboard prototype integrated with its steering controls",
+      gallery: [
+        {
+          src: "assets/Dashboard_Integration.png",
+          alt: "Driver Dashboard prototype integrated with its steering controls",
+          caption: "Driver Dashboard integration test",
+        },
+      ],
       modelFile: "assets/models/E_PAS_DRD_2.0.glb",
       stepFile: "",
-      alt: "Solar energy electronics prototype on a lab bench",
       summary:
           "The Driver Dashboard PCB was designed for UBC Solar’s race car as the primary interface between the driver and the vehicle’s low-voltage electrical system.\n\nUnlike most other boards in the car, the Driver Dashboard directly interacts with the driver through physical switches, LEDs, and an LCD display. It allows the driver to control important vehicle functions, including drive states, motor power modes, lighting systems, and audio features. It also displays real-time information such as vehicle speed, active drive state, selected power mode, battery-pack status, and system faults.\n\nWithin the vehicle architecture, the Driver Dashboard acts as the central driver-interface and control board for the low-voltage system. It exchanges CAN messages with the battery management system, motor-control electronics, telemetry system, solar-array electronics, and other vehicle PCBs. These messages allow the dashboard to receive diagnostic information, communicate driver commands, identify faults, and provide the pit crew with real-time vehicle data during competition.",
       tags: ["Altium Designer", "PCB Design", "UBC Solar Car"],
@@ -47,9 +55,16 @@ window.PORTFOLIO_DATA = {
       title: "Project Two",
       category: "Embedded Systems",
       year: "Add year",
-      image: "assets/project-02.jpg",
+      coverImage: "assets/project-02.jpg",
+      coverAlt: "Embedded electronics prototype with a sensor module",
+      gallery: [
+        {
+          src: "assets/project-02.jpg",
+          alt: "Embedded electronics prototype with a sensor module",
+          caption: "",
+        },
+      ],
       stepFile: "",
-      alt: "Embedded electronics prototype with a sensor module",
       summary:
         "Use this entry for a course project, design team contribution, or personal build.",
       tags: ["Add technology", "Add skill"],
@@ -67,9 +82,16 @@ window.PORTFOLIO_DATA = {
       title: "Project Three",
       category: "Testing & Validation",
       year: "Add year",
-      image: "assets/project-03.jpg",
+      coverImage: "assets/project-03.jpg",
+      coverAlt: "Electronics testing setup with an oscilloscope",
+      gallery: [
+        {
+          src: "assets/project-03.jpg",
+          alt: "Electronics testing setup with an oscilloscope",
+          caption: "",
+        },
+      ],
       stepFile: "",
-      alt: "Electronics testing setup with an oscilloscope",
       summary:
         "Add another project with a clear problem, process, technical contribution, and result.",
       tags: ["Add technology", "Add skill"],

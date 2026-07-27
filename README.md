@@ -44,9 +44,29 @@ Project content is stored in `site-data.js`. Each project has:
 - Challenge, approach, and outcome
 - Optional live-project and GitHub URLs
 
-Project images use `assets/project-01.jpg`, `assets/project-02.jpg`, and
-`assets/project-03.jpg`. Replace the generated placeholders while keeping the same
-filenames, or update the image paths in `site-data.js`.
+Each project uses separate carousel and gallery fields in `site-data.js`:
+
+```js
+coverImage: "assets/my-project-cover.jpg",
+coverAlt: "Short description of the cover image",
+gallery: [
+  {
+    src: "assets/my-project-photo-01.jpg",
+    alt: "Accessible description of the first project photo",
+    caption: "Optional caption",
+  },
+  {
+    src: "assets/my-project-photo-02.jpg",
+    alt: "Accessible description of the second project photo",
+    caption: "",
+  },
+],
+```
+
+`coverImage` is the single image shown in the rotating project carousel. Add as
+many entries as needed to `gallery`; those images appear only inside the project
+details. The cover can also be included in the gallery when you want it shown in
+both places.
 
 The project carousel supports:
 

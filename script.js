@@ -136,6 +136,10 @@ function wrappedOffset(index) {
   return offset;
 }
 
+function projectCover(project) {
+  return project.coverImage || project.image || project.gallery?.[0]?.src || "";
+}
+
 function projectCard(project, index) {
   const button = document.createElement("button");
   button.className = "project-card";
@@ -143,7 +147,7 @@ function projectCard(project, index) {
   button.dataset.index = String(index);
   button.setAttribute("aria-label", `Open ${project.title}`);
   button.innerHTML = `
-    <img src="${project.image}" alt="" draggable="false" />
+    <img src="${projectCover(project)}" alt="" draggable="false" />
     <span class="project-card-label">
       <span>${project.category}</span>
       <strong>${project.title}</strong>
@@ -348,7 +352,8 @@ if (skills.length) {
 
 const dialog = document.querySelector("#project-dialog");
 const dialogClose = document.querySelector("#dialog-close");
-const dialogImage = document.querySelector("#dialog-image");
+const dialogImageSection = document.querySelector(".dialog-image-section");
+const dialogGallery = document.querySelector("#dialog-gallery");
 const dialogCategory = document.querySelector("#dialog-category");
 const dialogTitle = document.querySelector("#dialog-title");
 const dialogSummary = document.querySelector("#dialog-summary");
@@ -364,9 +369,47 @@ function configureDialogLink(link, url) {
   if (url) link.href = url;
 }
 
+function galleryItems(project) {
+  if (project.gallery?.length) return project.gallery;
+  const coverImage = projectCover(project);
+  if (!coverImage) return [];
+  return [
+    {
+      src: coverImage,
+      alt: project.coverAlt || project.alt || `${project.title} project image`,
+      caption: "",
+    },
+  ];
+}
+
+function renderProjectGallery(project) {
+  const items = galleryItems(project);
+  dialogImageSection.hidden = items.length === 0;
+  dialogGallery.replaceChildren(
+    ...items.map((item) => {
+      const figure = document.createElement("figure");
+      figure.className = "dialog-gallery-item";
+
+      const image = document.createElement("img");
+      image.src = item.src;
+      image.alt = item.alt || `${project.title} project image`;
+      image.loading = "lazy";
+      image.decoding = "async";
+      figure.appendChild(image);
+
+      if (item.caption) {
+        const caption = document.createElement("figcaption");
+        caption.textContent = item.caption;
+        figure.appendChild(caption);
+      }
+
+      return figure;
+    }),
+  );
+}
+
 function openProject(project) {
-  dialogImage.src = project.image;
-  dialogImage.alt = project.alt;
+  renderProjectGallery(project);
   dialogCategory.textContent = `${project.category} | ${project.year}`;
   dialogTitle.textContent = project.title;
   dialogSummary.textContent = project.summary;

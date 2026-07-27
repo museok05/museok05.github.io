@@ -1125,27 +1125,6 @@ a {
   border-color: rgba(255, 255, 255, 0.38);
 }
 
-.step-file-button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 9px;
-  min-height: 38px;
-  padding: 0 12px;
-  border: 1px solid var(--solar-yellow);
-  border-radius: 4px;
-  color: var(--ink);
-  background: var(--solar-yellow);
-  font-size: 12px;
-  font-weight: 700;
-  cursor: pointer;
-}
-
-.step-file-button .icon {
-  width: 16px;
-  height: 16px;
-}
-
 .step-loading {
   position: absolute;
   inset: 0;

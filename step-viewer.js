@@ -10,7 +10,6 @@ const status = document.querySelector("#step-viewer-status");
 const loading = document.querySelector("#step-loading");
 const error = document.querySelector("#step-error");
 const resetButton = document.querySelector("#step-reset");
-const fileInput = document.querySelector("#step-file-input");
 const gltfLoader = new GLTFLoader();
 
 let renderer;
@@ -343,7 +342,7 @@ async function loadGlbUrl(url) {
     });
     modelRoot.add(gltf.scene);
     fitCameraToModel();
-    setStatus(`${fileName} | optimized web model`);
+    setStatus("Interactive 3D model");
   } catch (loadError) {
     createDemoBoard();
     setError(loadError.message || "The optimized 3D model could not be opened.");
@@ -396,12 +395,6 @@ window.addEventListener("portfolio:project-close", () => {
 });
 
 resetButton.addEventListener("click", resetView);
-fileInput.addEventListener("change", async () => {
-  const [file] = fileInput.files;
-  if (!file) return;
-  await loadStepBuffer(await file.arrayBuffer(), file.name);
-  fileInput.value = "";
-});
 
 try {
   createRenderer();

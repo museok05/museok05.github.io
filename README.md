@@ -81,10 +81,9 @@ to the section heading.
 stepFile: "assets/models/solar-control-board.step",
 ```
 
-When `stepFile` is empty, the viewer displays a lightweight demo PCB. The **Open
-STEP** button in the viewer can preview a model from the visitor's computer, but it
-does not permanently upload or save that file. Permanent models must be committed
-to the GitHub repository.
+When both model fields are empty, the viewer displays a lightweight demo PCB.
+Permanent models must be committed to the GitHub repository and configured in
+`site-data.js`; visitors cannot replace the displayed model through the website.
 
 STEP parsing runs entirely in the browser with `occt-import-js`. The resulting mesh
 is displayed with Three.js and supports orbit, zoom, and pan controls. Keep models
@@ -100,7 +99,7 @@ fresh desktop test.
 The published project therefore uses `assets/models/E_PAS_DRD_2.0.glb`, an
 optimized 14.0 MiB copy of the same assembly. It fits GitHub's 25 MiB browser
 upload limit and opens directly without STEP conversion. The source STEP remains
-outside this portfolio folder and can still be previewed with **Open STEP**.
+outside this portfolio folder.
 
 For other large models, use a web-optimized GLB in the optional `modelFile` field:
 

@@ -46,10 +46,14 @@ document.addEventListener("keydown", (event) => {
   }
 });
 
-headshotImage.addEventListener("load", () => headshot.classList.add("has-image"));
-headshotImage.addEventListener("error", () => headshot.classList.remove("has-image"));
-if (headshotImage.complete && headshotImage.naturalWidth > 0) {
-  headshot.classList.add("has-image");
+headshotImage.addEventListener("load", () =>
+  headshot.classList.remove("image-unavailable"),
+);
+headshotImage.addEventListener("error", () =>
+  headshot.classList.add("image-unavailable"),
+);
+if (headshotImage.complete && headshotImage.naturalWidth === 0) {
+  headshot.classList.add("image-unavailable");
 }
 
 resumeLink.addEventListener("click", (event) => {
@@ -109,7 +113,6 @@ const orbit = document.querySelector("#project-orbit");
 const counter = document.querySelector("#project-counter");
 const activeCategory = document.querySelector("#active-project-category");
 const activeTitle = document.querySelector("#active-project-title");
-const activeSummary = document.querySelector("#active-project-summary");
 const previousButton = document.querySelector("#project-previous");
 const nextButton = document.querySelector("#project-next");
 const openActiveButton = document.querySelector("#open-active-project");
@@ -166,7 +169,6 @@ function updateActiveCopy() {
     String(projects.length).padStart(2, "0");
   activeCategory.textContent = `${project.category} | ${project.year}`;
   activeTitle.textContent = project.title;
-  activeSummary.textContent = project.summary;
   const copy = activeTitle.closest(".project-active-copy");
   copy.classList.remove("is-updating");
   requestAnimationFrame(() => copy.classList.add("is-updating"));
@@ -175,7 +177,7 @@ function updateActiveCopy() {
 function renderCarousel() {
   if (!projects.length) return;
   const width = stage.clientWidth;
-  const spacing = Math.min(width * 0.36, 310);
+  const spacing = Math.min(width * 0.34, 430);
 
   projectCards.forEach((card, index) => {
     const position = wrappedOffset(index) + dragPosition;
@@ -222,7 +224,7 @@ function moveDrag(event) {
   if (!isDragging) return;
   const delta = event.clientX - pointerStartX;
   if (Math.abs(delta) > 5) movedDuringDrag = true;
-  const spacing = Math.min(stage.clientWidth * 0.36, 310);
+  const spacing = Math.min(stage.clientWidth * 0.34, 430);
   dragPosition = clamp(delta / Math.max(spacing, 1), -1.2, 1.2);
   renderCarousel();
 }

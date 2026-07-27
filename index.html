@@ -22,7 +22,7 @@
       href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css?v=7" />
+    <link rel="stylesheet" href="styles.css?v=8" />
     <script type="importmap">
       {
         "imports": {
@@ -32,7 +32,7 @@
       }
     </script>
     <script src="site-data.js?v=7" defer></script>
-    <script src="script.js?v=5" defer></script>
+    <script src="script.js?v=6" defer></script>
     <script type="module" src="step-viewer.js?v=8"></script>
   </head>
   <body>
@@ -88,7 +88,7 @@
             <span class="headshot-fallback" aria-hidden="true">MS</span>
             <img
               class="headshot-image"
-              src="assets/headshot.jpg"
+              src="assets/headshot-web.jpg"
               alt="Portrait of Museok Seo"
             />
             <span class="headshot-accent" aria-hidden="true"></span>
@@ -204,7 +204,6 @@
               <div class="project-active-copy" aria-live="polite">
                 <p id="active-project-category" class="project-category"></p>
                 <h3 id="active-project-title"></h3>
-                <p id="active-project-summary"></p>
               </div>
               <div class="project-controls">
                 <button class="project-open-button" id="open-active-project" type="button">
@@ -411,9 +410,6 @@
       </section>
 
       <div class="dialog-body">
-        <div class="dialog-media">
-          <img id="dialog-image" src="" alt="" />
-        </div>
         <article class="dialog-content">
           <p class="project-category" id="dialog-category"></p>
           <h2 id="dialog-title"></h2>
@@ -448,6 +444,15 @@
             </a>
           </div>
         </article>
+        <section class="dialog-image-section" aria-labelledby="dialog-image-section-title">
+          <div class="dialog-image-heading">
+            <p class="project-category">Gallery</p>
+            <h3 id="dialog-image-section-title">Project image</h3>
+          </div>
+          <figure class="dialog-media">
+            <img id="dialog-image" src="" alt="" />
+          </figure>
+        </section>
       </div>
     </dialog>
   </body>

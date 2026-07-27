@@ -11,15 +11,19 @@ already serves it correctly over HTTPS.
 
 ## Personalize the hero
 
-The hero uses two stable asset filenames:
+The hero uses these image assets:
 
 - Landscape background: `assets/hero-background.jpg`
-- Circular headshot: `assets/headshot.jpg`
+- Circular headshot shown by the site: `assets/headshot-web.jpg`
+- Original full-resolution headshot source: `assets/headshot.jpg`
 
-Replace either file with your own image while keeping the same filename. Use a wide
-landscape image for the background and a square portrait for the headshot.
+Replace the background or displayed headshot while keeping the corresponding
+filename. Use a wide landscape image for the background and a square portrait for
+`headshot-web.jpg`. Keeping the displayed portrait below 1 MiB helps the hero load
+quickly.
 
-The site shows the initials `MS` automatically when `assets/headshot.jpg` is absent.
+The site shows the initials `MS` automatically when `assets/headshot-web.jpg` is
+absent.
 
 ## Add the resume
 

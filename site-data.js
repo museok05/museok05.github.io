@@ -68,25 +68,35 @@ window.PORTFOLIO_DATA = {
     },
     {
       id: "project-02",
-      title: "Project Two",
-      category: "Embedded Systems",
-      year: "Add year",
-      coverImage: "assets/project-02.jpg",
-      coverAlt: "Embedded electronics prototype with a sensor module",
-      previewImage: "assets/project-02.jpg",
+      title: "Hardware Bring-Up and Validation Firmware",
+      category: "Firmware Design",
+      year: "2025",
+      coverImage: "assets/VS_Code.png",
+      coverAlt: "Screenshot of Visual Studio Code with embedded firmware source code",
+      previewImage: "assets/VS_Code.png",
       previewAlt: "Embedded firmware project preview",
       gallery: [
         {
-          src: "assets/project-02.jpg",
-          alt: "Embedded electronics prototype with a sensor module",
-          caption: "",
+          src: "assets/VS_Code.png",
+          alt: "Screenshot of Visual Studio Code with embedded firmware source code",
+          caption: "Visual Studio Code environment for embedded firmware development",
+        },
+                {
+          src: "assets/PCAN_View.png",
+          alt: "Screenshot of PCAN View with CAN messages",
+          caption: "PCAN View for CAN communication monitoring",
+        },
+                {
+          src: "assets/STR_Firmware.png",
+          alt: "Image of Validating Steering Wheel PCB from Brightside 2024",
+          caption: "Validating Steering Wheel PCB from Brightside 2024",
         },
       ],
       modelFile: "",
       stepFile: "",
       summary:
   "The Hardware Bring-Up and Validation Firmware was developed for UBC Solar as a reusable testing platform for PCBs built around the STM32F103 microcontroller.\n\nThe project was my first major introduction to embedded firmware development in C and was created to improve the handoff between the hardware and firmware subteams. Before a newly assembled board was passed to the firmware team, the validation program could be flashed onto the STM32 to verify basic microcontroller connectivity, detect unexpected GPIO behaviour, and confirm CAN communication.\n\nThe project addressed a recurring problem within the team: when a board failed during integration, it was often unclear whether the cause was a hardware issue, such as a soldering defect, missing power rail, or incorrect circuit connection, or a firmware issue, such as an incorrect peripheral configuration or communication address. The objective was to automate as much of the bring-up process as possible while minimizing the amount of manual testing required from the user.",
-      tags: ["Add technology", "Add skill"],
+      tags: ["C Programming", "Embedded Systems", "Git", "STM32", "CAN"],
       challenge:
   "The primary challenge was developing a general-purpose test program that could be reused across several UBC Solar boards despite differences in their pin assignments, external circuitry, and communication interfaces.\n\nThe firmware needed to detect possible shorts and unexpected connections between MCU pins, identify pins that were not behaving as expected, transmit and receive CAN messages, configure CAN filters and receive mailboxes correctly, and minimize manual interaction during board bring-up.\n\nBecause this was my first firmware project, my original implementation placed most of the testing logic inside one large loop. Although the program functioned, it quickly became difficult to read, debug, and modify. Even small changes required searching through a long sequence of tightly coupled logic.\n\nAnother challenge was that the firmware could not evaluate the microcontroller pins in isolation. External pull-up and pull-down resistors, peripheral circuits, voltage dividers, and power rails all affected the values measured by the STM32. This meant that a result appearing to indicate a fault could instead be caused by the intended hardware connected to that pin.\n\nCAN debugging created a similar issue. For much of the project, I assumed the problem was related to CAN initialization, filtering, or mailbox configuration because no messages were visible in PCAN-View. The actual cause was that the board's 5 V rail, which powered the CAN transceiver, had not been connected. A power indicator LED still illuminated while the board was powered from 3.3 V, making the missing supply less obvious.",
       approach:

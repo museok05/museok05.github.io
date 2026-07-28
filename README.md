@@ -90,6 +90,20 @@ The project carousel supports:
 - Tap or click a side project to rotate it into focus
 - Infinite wraparound
 
+### Project 3 LTspice figures
+
+Project 3 is configured to show these simulation screenshots only inside its
+project gallery:
+
+- `assets/clb-ltspice-wave-sequence.png`
+- `assets/clb-ltspice-ground-reference.png`
+- `assets/clb-ltspice-switching-detail.png`
+
+Save the three original LTspice screenshots with those filenames. Their order,
+descriptions, and captions are configured in the `project-03` entry in
+`site-data.js`. The carousel cover and top preview remain blank until
+`coverImage` and `previewImage` are updated.
+
 ## Edit skills
 
 The looping skills section is also configured in `site-data.js`. Each entry needs a

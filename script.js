@@ -137,17 +137,25 @@ function wrappedOffset(index) {
 }
 
 function projectCover(project) {
-  return project.coverImage || project.image || project.gallery?.[0]?.src || "";
+  if (Object.prototype.hasOwnProperty.call(project, "coverImage")) {
+    return project.coverImage || "";
+  }
+  return project.image || project.gallery?.[0]?.src || "";
 }
 
 function projectCard(project, index) {
   const button = document.createElement("button");
+  const coverImage = projectCover(project);
   button.className = "project-card";
   button.type = "button";
   button.dataset.index = String(index);
   button.setAttribute("aria-label", `Open ${project.title}`);
   button.innerHTML = `
-    <img src="${projectCover(project)}" alt="" draggable="false" />
+    ${
+      coverImage
+        ? `<img src="${coverImage}" alt="" draggable="false" />`
+        : '<span class="project-card-placeholder" aria-hidden="true"></span>'
+    }
     <span class="project-card-label">
       <span>${project.category}</span>
       <strong>${project.title}</strong>
@@ -393,12 +401,18 @@ function renderProjectGallery(project) {
     ...items.map((item) => {
       const figure = document.createElement("figure");
       figure.className = "dialog-gallery-item";
+      figure.classList.toggle("is-wide", Boolean(item.fullWidth));
 
       const image = document.createElement("img");
       image.src = item.src;
       image.alt = item.alt || `${project.title} project image`;
       image.loading = "lazy";
       image.decoding = "async";
+      image.addEventListener("error", () => {
+        if (figure.parentElement !== dialogGallery) return;
+        figure.remove();
+        dialogImageSection.hidden = dialogGallery.children.length === 0;
+      });
       figure.appendChild(image);
 
       if (item.caption) {
@@ -414,7 +428,7 @@ function renderProjectGallery(project) {
 
 function configureProjectPreview(project) {
   const hasModel = Boolean(project.modelFile || project.stepFile);
-  const previewImage = project.previewImage || projectCover(project);
+  const previewImage = project.previewImage ?? projectCover(project);
 
   dialogModelViewer.hidden = !hasModel;
   dialogPreview.hidden = hasModel || !previewImage;

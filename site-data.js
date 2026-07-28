@@ -108,31 +108,47 @@ window.PORTFOLIO_DATA = {
     },
     {
       id: "project-03",
-      title: "Project Three",
-      category: "Testing & Validation",
-      year: "Add year",
-      coverImage: "assets/project-03.jpg",
-      coverAlt: "Electronics testing setup with an oscilloscope",
-      previewImage: "assets/project-03.jpg",
-      previewAlt: "Electronics testing and validation project preview",
+      title: "Exterior and Chaser Lights Boards",
+      category: "PCB / Lighting Systems",
+      year: "2024",
+      coverImage: "",
+      coverAlt: "",
+      previewImage: "",
+      previewAlt: "",
       gallery: [
         {
-          src: "assets/project-03.jpg",
-          alt: "Electronics testing setup with an oscilloscope",
-          caption: "",
+          src: "assets/clb-ltspice-wave-sequence.png",
+          alt: "LTspice schematic and LED current plots showing the intended chaser-light sequence",
+          caption:
+            "Transient simulation of the intended staggered LED switching sequence.",
+          fullWidth: true,
+        },
+        {
+          src: "assets/clb-ltspice-ground-reference.png",
+          alt: "LTspice schematic with unstable near-zero LED current plots caused by incomplete signal references",
+          caption:
+            "An inaccurate run caused by unstable input and ground references in the simulation testbench.",
+          fullWidth: true,
+        },
+        {
+          src: "assets/clb-ltspice-switching-detail.png",
+          alt: "LTspice detailed switching transient for the chaser-light MOSFET circuit",
+          caption:
+            "Detailed transient view used to inspect switching timing and LED branch current.",
+          fullWidth: true,
         },
       ],
       modelFile: "",
       stepFile: "",
       summary:
-        "Add another project with a clear problem, process, technical contribution, and result.",
-      tags: ["Add technology", "Add skill"],
+        "The Exterior and Chaser Lights Boards were designed for UBC Solar's vehicle lighting system. The exterior-lighting board provides the control and switching interface for the car's external LED loads, while the Chaser Lights Board sequences separate LED groups to create a visible wave pattern.\n\nThe chaser circuit uses timed control signals and NMOS/PMOS switching stages to select which LED branches are active. This allowed the lighting pattern to move across the vehicle without requiring each LED group to be controlled as an independent high-current load.",
+      tags: ["Altium Designer", "LTspice", "PCB Design", "MOSFET Switching"],
       challenge:
-        "Describe the design problem, requirements, constraints, and your responsibility.",
+        "The main design challenge was coordinating several LED loads and switching states while keeping the circuit compact and ensuring that every branch entered a predictable on or off state. The design also needed to translate low-power control signals into reliable switching for the vehicle's lighting loads.\n\nLTspice was used to study how the NMOS devices, PMOS devices, and control switches would select LED groups and create the wave pattern. Some simulation graphs did not match the expected circuit behavior. The switching signals representing inputs received by the Chaser Lights Board were not referenced to a sufficiently stable ground in the testbench, which left IC inputs and return paths in unrealistic states.\n\nThe circuit topology was sound, but the incomplete input and ground modeling produced near-zero currents, abrupt spikes, and other nonphysical results. This made it important to separate a schematic design problem from a simulation setup problem.",
       approach:
-        "Explain the system you designed, the decisions you made, and how you tested it.",
+        "I separated the lighting functions into an exterior-lighting control board and a compact Chaser Lights Board. The chaser circuit generates a stepped sequence of control states, then uses MOSFET switching to route current through the selected LED branches. Component placement and routing were developed in Altium Designer with attention to connector access, current paths, and the compact mechanical footprint.\n\nFor simulation, I built a transient LTspice testbench to observe the order and duration of the LED branch currents. I compared the expected sequence against the plotted currents and investigated the unusual traces rather than treating the first simulation result as proof of circuit behavior.\n\nThe discrepancy was traced to how the external switching signals and grounds were represented. A stronger testbench would give every IC supply, logic input, and control source an explicit shared reference, reproduce the actual source impedance and logic levels, and verify one switching stage at a time before simulating the complete pattern.",
       outcome:
-        "Share the result, evidence, lessons learned, and what you would improve next.",
+        "The project established a dedicated architecture for the vehicle's exterior and animated lighting functions and provided a compact switching design for the chaser effect. The LTspice work also exposed an important limitation in the original validation process: a simulation is only as reliable as its source models, reference nodes, and initial conditions.\n\nI learned to verify ground returns, IC reference pins, logic thresholds, input stability, and probe locations before interpreting transient plots. In a future revision, I would rebuild the testbench with explicit ground-referenced input sources, validate each MOSFET stage independently, and then compare the full simulated sequence with measurements from the physical board.",
       projectUrl: "",
       githubUrl: "",
     },

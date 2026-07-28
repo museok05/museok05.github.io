@@ -22,7 +22,7 @@
       href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css?v=11" />
+    <link rel="stylesheet" href="styles.css?v=12" />
     <script type="importmap">
       {
         "imports": {
@@ -31,9 +31,9 @@
         }
       }
     </script>
-    <script src="site-data.js?v=9" defer></script>
-    <script src="script.js?v=8" defer></script>
-    <script type="module" src="step-viewer.js?v=8"></script>
+    <script src="site-data.js?v=10" defer></script>
+    <script src="script.js?v=9" defer></script>
+    <script type="module" src="step-viewer.js?v=9"></script>
   </head>
   <body>
     <a class="skip-link" href="#main-content">Skip to content</a>
@@ -378,6 +378,10 @@ This portfolio documents the projects I build, the challenges I encounter, and w
           <path d="M18 6 6 18M6 6l12 12" />
         </svg>
       </button>
+
+      <section class="project-preview" id="project-preview" hidden>
+        <img id="project-preview-image" src="" alt="" />
+      </section>
 
       <section class="step-viewer" id="step-viewer" aria-label="Interactive 3D model">
         <canvas

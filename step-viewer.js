@@ -368,12 +368,19 @@ function animate() {
 }
 
 window.addEventListener("portfolio:project-open", (event) => {
+  const project = event.detail;
+  if (!project) return;
+  if (!project.modelFile && !project.stepFile) {
+    viewerActive = false;
+    setLoading(false);
+    setError();
+    return;
+  }
+
   viewerActive = true;
   resize();
   requestAnimationFrame(resize);
 
-  const project = event.detail;
-  if (!project) return;
   if (project.id === currentProjectId) {
     resetView();
     return;
@@ -385,8 +392,6 @@ window.addEventListener("portfolio:project-open", (event) => {
     loadGlbUrl(project.modelFile);
   } else if (project.stepFile) {
     loadStepUrl(project.stepFile);
-  } else {
-    setStatus(`${project.title} | 3D model slot`);
   }
 });
 

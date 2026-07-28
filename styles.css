@@ -1059,6 +1059,27 @@ a {
   background: rgba(23, 26, 29, 0.66);
 }
 
+.project-preview {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: min(56vh, 620px);
+  min-height: 420px;
+  background: #e8edf0;
+  overflow: hidden;
+}
+
+.project-preview[hidden],
+.step-viewer[hidden] {
+  display: none;
+}
+
+.project-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
 .step-viewer {
   position: relative;
   width: 100%;
@@ -1912,6 +1933,11 @@ a {
   .step-viewer {
     height: 390px;
     min-height: 390px;
+  }
+
+  .project-preview {
+    height: 340px;
+    min-height: 340px;
   }
 
   .step-toolbar {

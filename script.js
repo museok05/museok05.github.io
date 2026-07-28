@@ -352,6 +352,9 @@ if (skills.length) {
 
 const dialog = document.querySelector("#project-dialog");
 const dialogClose = document.querySelector("#dialog-close");
+const dialogModelViewer = document.querySelector("#step-viewer");
+const dialogPreview = document.querySelector("#project-preview");
+const dialogPreviewImage = document.querySelector("#project-preview-image");
 const dialogImageSection = document.querySelector(".dialog-image-section");
 const dialogGallery = document.querySelector("#dialog-gallery");
 const dialogCategory = document.querySelector("#dialog-category");
@@ -409,7 +412,26 @@ function renderProjectGallery(project) {
   );
 }
 
+function configureProjectPreview(project) {
+  const hasModel = Boolean(project.modelFile || project.stepFile);
+  const previewImage = project.previewImage || projectCover(project);
+
+  dialogModelViewer.hidden = !hasModel;
+  dialogPreview.hidden = hasModel || !previewImage;
+
+  if (hasModel || !previewImage) {
+    dialogPreviewImage.removeAttribute("src");
+    dialogPreviewImage.alt = "";
+    return;
+  }
+
+  dialogPreviewImage.src = previewImage;
+  dialogPreviewImage.alt =
+    project.previewAlt || project.coverAlt || `${project.title} preview`;
+}
+
 function openProject(project) {
+  configureProjectPreview(project);
   renderProjectGallery(project);
   dialogCategory.textContent = `${project.category} | ${project.year}`;
   dialogTitle.textContent = project.title;

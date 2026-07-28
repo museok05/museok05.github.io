@@ -73,6 +73,8 @@ window.PORTFOLIO_DATA = {
       year: "Add year",
       coverImage: "assets/project-02.jpg",
       coverAlt: "Embedded electronics prototype with a sensor module",
+      previewImage: "assets/project-02.jpg",
+      previewAlt: "Embedded firmware project preview",
       gallery: [
         {
           src: "assets/project-02.jpg",
@@ -80,6 +82,7 @@ window.PORTFOLIO_DATA = {
           caption: "",
         },
       ],
+      modelFile: "",
       stepFile: "",
       summary:
         "Use this entry for a course project, design team contribution, or personal build.",
@@ -100,6 +103,8 @@ window.PORTFOLIO_DATA = {
       year: "Add year",
       coverImage: "assets/project-03.jpg",
       coverAlt: "Electronics testing setup with an oscilloscope",
+      previewImage: "assets/project-03.jpg",
+      previewAlt: "Electronics testing and validation project preview",
       gallery: [
         {
           src: "assets/project-03.jpg",
@@ -107,6 +112,7 @@ window.PORTFOLIO_DATA = {
           caption: "",
         },
       ],
+      modelFile: "",
       stepFile: "",
       summary:
         "Add another project with a clear problem, process, technical contribution, and result.",

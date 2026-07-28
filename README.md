@@ -68,6 +68,20 @@ many entries as needed to `gallery`; those images appear only inside the project
 details. The cover can also be included in the gallery when you want it shown in
 both places.
 
+For a project without a 3D model, add a top preview image:
+
+```js
+previewImage: "assets/my-firmware-screenshot.jpg",
+previewAlt: "Firmware test output shown in a serial monitor",
+modelFile: "",
+stepFile: "",
+```
+
+This is useful for firmware, software, testing, or simulation projects. The preview
+can be a code screenshot, serial-monitor output, logic-analyzer capture, block
+diagram, or photo of the hardware running. Projects with `modelFile` or `stepFile`
+continue to show the interactive 3D viewer instead.
+
 The project carousel supports:
 
 - Previous and next arrow buttons

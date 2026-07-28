@@ -39,6 +39,17 @@ window.PORTFOLIO_DATA = {
           alt: "Driver Dashboard prototype integrated with its steering controls",
           caption: "Driver Dashboard integration test",
         },
+
+        {
+          src: "assets/dashboard_front.jpg",
+          alt: "Close up view of Dashboard Front",
+          caption: "Close up view of Dashboard Front with Rework completed",
+        },
+        {
+          src: "assets/dashboard_back.jpg",
+          alt: "Fully assembled Driver Dashboard PCB back view",
+          caption: "Rear view of Driver Dashboard",
+        },
       ],
       modelFile: "assets/models/E_PAS_DRD_2.0.glb",
       stepFile: "",
@@ -53,6 +64,7 @@ window.PORTFOLIO_DATA = {
   "The completed design provided UBC Solar with a compact, vehicle-ready Driver Dashboard PCB that centralizes driver controls, status displays, fault information, and communication with the race car’s low-voltage systems.\n\nThe project required balancing electrical performance, driver usability, mechanical constraints, safety, reliability, and requirements from several engineering subteams. Through the design process, I gained experience taking a PCB from initial system requirements through schematic design, PCB layout, integration planning, and preparation for vehicle testing.\n\nThe project also strengthened my understanding of mixed-signal PCB design, microcontroller integration, CAN-based vehicle architectures, power regulation, protection circuitry, and cross-functional engineering collaboration.\n\nA separate project blog post provides a deeper breakdown of the design decisions, integration challenges, bring-up process, debugging issues, and lessons learned throughout the project.",
       projectUrl: "",
       githubUrl: "",
+      blogUrl: "posts/dashboard-blog.html",
     },
     {
       id: "project-02",

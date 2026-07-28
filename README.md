@@ -151,9 +151,15 @@ Keep the existing inner labels and icons for consistent styling.
 ## Publish a blog post
 
 1. Copy `posts/post-template.html`.
-2. Rename it, for example `posts/my-first-project.html`.
+2. Keep the copy inside `posts/` and rename it with lowercase words and hyphens,
+   for example `posts/my-first-project.html`.
 3. Replace the template title and article text.
 4. Add a link to the new post inside the `post-list` section in `blog.html`.
+5. Optionally feature it in the homepage `#blog` section.
+6. To connect it to a project modal, add its path as that project's `blogUrl` in
+   `site-data.js`.
+
+The Driver Dashboard post is stored at `posts/dashboard-blog.html`.
 
 ## GitHub Pages
 

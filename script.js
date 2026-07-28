@@ -361,6 +361,7 @@ const dialogTags = document.querySelector("#dialog-tags");
 const dialogChallenge = document.querySelector("#dialog-challenge");
 const dialogApproach = document.querySelector("#dialog-approach");
 const dialogOutcome = document.querySelector("#dialog-outcome");
+const dialogBlogLink = document.querySelector("#dialog-blog-link");
 const dialogProjectLink = document.querySelector("#dialog-project-link");
 const dialogGithubLink = document.querySelector("#dialog-github-link");
 
@@ -423,6 +424,7 @@ function openProject(project) {
       return item;
     }),
   );
+  configureDialogLink(dialogBlogLink, project.blogUrl);
   configureDialogLink(dialogProjectLink, project.projectUrl);
   configureDialogLink(dialogGithubLink, project.githubUrl);
   dialog.classList.remove("is-closing");

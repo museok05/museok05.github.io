@@ -139,7 +139,7 @@ window.PORTFOLIO_DATA = {
         },
       ],
       modelFile: "",
-      stepFile: "",
+      stepFile: "assets/models/CLB_1.0.step",
       summary:
         "The Exterior and Chaser Lights Boards were designed for UBC Solar's vehicle lighting system. The exterior-lighting board provides the control and switching interface for the car's external LED loads, while the Chaser Lights Board sequences separate LED groups to create a visible wave pattern.\n\nThe chaser circuit uses timed control signals and NMOS/PMOS switching stages to select which LED branches are active. This allowed the lighting pattern to move across the vehicle without requiring each LED group to be controlled as an independent high-current load.",
       tags: ["Altium Designer", "LTspice", "PCB Design", "MOSFET Switching"],

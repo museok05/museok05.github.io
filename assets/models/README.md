@@ -16,3 +16,7 @@ triangulation step.
 `E_PAS_DRD_2.0.glb` is a 14.0 MiB web-optimized conversion of the original
 38.4 MiB STEP assembly. The project loads the GLB directly; visitors cannot replace
 the displayed model through the website.
+
+`CLB_1.0.step` is the 5.61 MiB Chaser Lights Board assembly used by Project 3.
+Its size is suitable for direct GitHub upload, so the browser viewer loads and
+triangulates the STEP file without a separate converted model.

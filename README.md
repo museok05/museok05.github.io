@@ -133,9 +133,9 @@ to the section heading.
 stepFile: "assets/models/solar-control-board.step",
 ```
 
-When both model fields are empty, the viewer displays a lightweight demo PCB.
-Permanent models must be committed to the GitHub repository and configured in
-`site-data.js`; visitors cannot replace the displayed model through the website.
+When both model fields are empty, the 3D viewer is omitted. Permanent models must
+be committed to the GitHub repository and configured in `site-data.js`; visitors
+cannot replace the displayed model through the website.
 
 STEP parsing runs entirely in the browser with `occt-import-js`. The resulting mesh
 is displayed with Three.js and supports orbit, zoom, and pan controls. Keep models
@@ -163,6 +163,9 @@ stepFile: "",
 If you choose to publish a raw STEP between 25 and 100 MiB, commit it through Git
 or GitHub Desktop. Do not use Git LFS because GitHub Pages does not serve LFS
 objects.
+
+Project 3 uses `assets/models/CLB_1.0.step` directly. At 5.61 MiB, it can be
+uploaded normally through GitHub's website, Git, or GitHub Desktop.
 
 ## Add LinkedIn and email
 

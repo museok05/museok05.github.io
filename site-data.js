@@ -20,6 +20,26 @@ window.PORTFOLIO_DATA = {
       category: "Circuit simulation",
       icon: "assets/skills/ltspice.svg",
     },
+    {
+      name: "MATLAB",
+      category: "Technical computing",
+      icon: "assets/skills/matlab.svg",
+    },
+    {
+      name: "Arduino",
+      category: "Embedded prototyping",
+      icon: "assets/skills/arduino.svg",
+    },
+    {
+      name: "Python",
+      category: "Programming",
+      icon: "assets/skills/python.svg",
+    },
+    {
+      name: "SolidWorks",
+      category: "Mechanical CAD",
+      icon: "assets/skills/solidworks.svg",
+    },
   ],
   projects: [
     {
@@ -110,8 +130,8 @@ window.PORTFOLIO_DATA = {
       id: "project-03",
       title: "Exterior and Chaser Lights Boards",
       category: "PCB / Lighting Systems",
-      year: "2024",
-      coverImage: "",
+      year: "2024-2025",
+      coverImage: "assets/lights_board.png",
       coverAlt: "",
       previewImage: "",
       previewAlt: "",

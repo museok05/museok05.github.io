@@ -319,8 +319,9 @@ function skillItem(skill) {
 
 function skillsSequence() {
   const sequence = document.createElement("div");
+  const repeatCount = Math.max(3, Math.ceil(12 / skills.length));
   sequence.className = "skills-sequence";
-  for (let repeat = 0; repeat < 6; repeat += 1) {
+  for (let repeat = 0; repeat < repeatCount; repeat += 1) {
     skills.forEach((skill) => sequence.appendChild(skillItem(skill)));
   }
   return sequence;

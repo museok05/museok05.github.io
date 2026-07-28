@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title">
+  <title id="title">SolidWorks</title>
+  <path
+    d="M24 35 64 14l40 21v47L64 104 24 82V35Z"
+    fill="none"
+    stroke="#d2232a"
+    stroke-width="7"
+    stroke-linejoin="round"
+  />
+  <path
+    d="m25 36 39 22 39-22M64 58v45"
+    fill="none"
+    stroke="#d2232a"
+    stroke-width="7"
+    stroke-linejoin="round"
+  />
+  <path
+    d="M39 75c7 6 15 9 24 9 10 0 18-3 26-10"
+    fill="none"
+    stroke="#d2232a"
+    stroke-width="7"
+    stroke-linecap="round"
+  />
+</svg>

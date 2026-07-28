@@ -5,9 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Reflections on designing and integrating the Driver Dashboard PCB for UBC Solar."
+      content="Lessons in reliability, system integration, and hardware bring-up from designing the Driver Dashboard PCB for UBC Solar."
     />
-    <title>Reflections on the Driver Dashboard Project | Museok Seo</title>
+    <title>Designing the Driver Dashboard | Museok Seo</title>
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -16,10 +17,15 @@
     />
     <link rel="stylesheet" href="../styles.css?v=10" />
   </head>
+
   <body>
     <a class="skip-link" href="#main-content">Skip to content</a>
+
     <header class="site-header subpage-header">
-      <a class="wordmark" href="../index.html" aria-label="Museok Seo, home">MS</a>
+      <a class="wordmark" href="../index.html" aria-label="Museok Seo, home">
+        MS
+      </a>
+
       <a class="header-link" href="../blog.html">
         <svg class="icon" aria-hidden="true" viewBox="0 0 24 24">
           <path d="m15 18-6-6 6-6" />
@@ -31,36 +37,253 @@
     <main id="main-content">
       <header class="article-header">
         <p class="eyebrow">Project reflection | January 2026</p>
-        <h1>Reflections on the Driver Dashboard Project</h1>
+
+        <h1>Designing the Driver Dashboard: Lessons From My First Major PCB</h1>
+
         <p>
-          Notes on turning cross-team vehicle requirements into a compact,
-          driver-facing PCB for UBC Solar.
+          How a driver-facing control board taught me to think about reliability,
+          system integration, debugging, and the trade-offs behind engineering
+          decisions.
         </p>
       </header>
 
       <article class="article-body">
         <p class="article-lead">
-          The Driver Dashboard brought together PCB design, vehicle integration,
-          firmware coordination, and the practical needs of the person behind the
-          wheel.
+          The Driver Dashboard was my first major PCB project at UBC Solar involving
+          a microcontroller, coordination with several subteams, and ownership of a
+          system critical to the operation of our solar race car.
+        </p>
+
+        <p>
+          It was also the project that changed how I approached hardware design.
+          Instead of only asking whether a circuit would work under normal
+          conditions, I began asking how it could fail, how it would behave in its
+          actual operating environment, and what decisions would make it more
+          reliable, testable, and practical.
         </p>
 
         <h2>The context</h2>
+
         <p>
-          Explain the problem, your role, the constraints, and what you initially
-          expected.
+          The Driver Dashboard, or DRD, acts as the primary interface between the
+          driver and the race car’s low-voltage electrical system. It receives
+          physical inputs from the driver, displays vehicle information through LEDs
+          and an LCD, and communicates with systems such as the battery management
+          system, motor-control electronics, telemetry system, and other vehicle
+          PCBs over CAN.
+        </p>
+
+        <p>
+          This revision had several major requirements. The PCB needed to fit within
+          an area of approximately 150 mm × 100 mm, remain visible and accessible to
+          the driver, avoid interference with the steering column, and support
+          secure mounting inside the vehicle.
+        </p>
+
+        <p>
+          The board also needed to operate reliably inside a hot and electrically
+          noisy race-car environment. Temperatures inside the vehicle could approach
+          50 °C, meaning component voltage, current, power, and thermal ratings could
+          not be evaluated only under room-temperature bench conditions.
+        </p>
+
+        <p>
+          Because the dashboard interacted with the driver, firmware, electrical
+          system, and mechanical structure, its requirements came from several
+          different groups. I had to balance electrical routing, component
+          placement, connector access, driver usability, mechanical clearances,
+          debugging access, project cost, and schedule constraints.
+        </p>
+
+        <p>
+          This was also my first substantial design built around a microcontroller.
+          The board used an STM32F103 to process driver inputs, control dashboard
+          functions, communicate over CAN, and support the logic required by the
+          vehicle-control system.
         </p>
 
         <h2>What I tried</h2>
+
         <p>
-          Describe the technical decisions, experiments, mistakes, and evidence that
-          shaped the work.
+          My main objective was to design a board that would remain reliable
+          throughout testing and competition. Previous versions of the vehicle had
+          experienced electrical inconsistencies, so I wanted to include sufficient
+          design margin and protection, even where the relatively low power
+          consumption meant that components were unlikely to approach their maximum
+          ratings.
+        </p>
+
+        <p>
+          I began by learning how to evaluate and select MOSFETs for different
+          switching applications. This included comparing N-channel and P-channel
+          devices, considering high-side and low-side switching, checking gate-drive
+          requirements, reviewing on-resistance, and calculating power dissipation
+          and junction-temperature rise.
+        </p>
+
+        <p>
+          Although the thermal calculations showed that the devices would operate
+          well within their limits, the process helped me understand how component
+          ratings must be evaluated as part of a complete operating condition rather
+          than as isolated values from a datasheet.
+        </p>
+
+        <p>
+          The board also included ESD protection, reverse-polarity protection,
+          fusing, signal conditioning, and MOSFET-based control circuitry. These
+          features were intended to prevent external faults or incorrect connections
+          from damaging the dashboard or the electronics powered through it.
+        </p>
+
+        <p>
+          Designing around the STM32 required me to study its datasheet and
+          development tools in detail. I verified the electrical limits and
+          alternate functions of each pin and confirmed which pins supported CAN,
+          SPI, interrupts, analog inputs, and SWD debugging.
+        </p>
+
+        <p>
+          I also learned the importance of the circuitry surrounding the
+          microcontroller. Decoupling capacitors needed to be placed close to the
+          supply pins, external signals required protection and conditioning, and
+          the boot, reset, programming, and communication connections had to be
+          configured correctly.
+        </p>
+
+        <p>
+          Switch debouncing was one example of coordinating the hardware and
+          firmware design. Mechanical switches can rapidly transition between states
+          during a single press, causing the microcontroller to detect several
+          commands instead of one. We addressed this through a combination of
+          hardware filtering and firmware-based debouncing.
+        </p>
+
+        <p>
+          Using both approaches added resilience without significantly increasing
+          the cost or complexity of the board. It also showed me how hardware and
+          firmware can support each other instead of assigning every possible failure
+          case entirely to one side.
+        </p>
+
+        <p>
+          Mechanical integration was another major part of the design. I worked with
+          the vehicle dynamics and structures teams to conduct physical mock-ups and
+          confirm the dashboard dimensions, mounting position, connector access,
+          driver visibility, and steering-column clearance.
+        </p>
+
+        <p>
+          Feedback from drivers also influenced the placement of the switches, LEDs,
+          and LCD. The board needed to be electrically functional, but it also needed
+          to present information clearly and allow the driver to operate the controls
+          comfortably during competition.
+        </p>
+
+        <p>
+          Although I did not write the production firmware, I worked with the
+          firmware team to define the board’s switches, indicators, communication
+          interfaces, pin assignments, and debugging requirements. I designed the
+          hardware to support development and troubleshooting through a dedicated
+          SWD connection for a J-Link or ST-Link debugger.
+        </p>
+
+        <p>
+          The cross-team work also taught me to communicate the impact of requested
+          changes. Moving a connector might appear to be a minor adjustment from a
+          mechanical perspective, but on a compact two-layer PCB, it could require
+          major rerouting, component relocation, and another round of design
+          verification.
+        </p>
+
+        <p>
+          In some situations, a PCB change could delay the project by approximately
+          a week, while a small enclosure adjustment could solve the same problem
+          much more quickly. Explaining these trade-offs allowed the team to select
+          the solution that was best for the complete vehicle rather than the
+          solution that was easiest for one subteam.
+        </p>
+
+        <p>
+          Board bring-up exposed several issues that were difficult to predict during
+          schematic design. One of the most time-consuming problems was an
+          inconsistent connection between the J-Link debugger and the STM32.
+        </p>
+
+        <p>
+          We spent approximately a week checking the power rails, programming
+          connections, reset behaviour, firmware configuration, and debugging
+          settings before isolating the issue to a damaged microcontroller. The exact
+          cause could not be confirmed, but possible contributors included ESD
+          exposure, soldering damage, or improper storage and handling.
+        </p>
+
+        <p>
+          Testing also revealed switch bouncing, which we observed directly by
+          probing the signals with an oscilloscope. Seeing the unstable waveform made
+          the purpose of debounce circuitry much clearer than simply reading about
+          it in a datasheet.
+        </p>
+
+        <p>
+          Another lesson from bring-up was that additional test points are usually
+          more useful than expected. Signals that appear easy to access in the
+          schematic can be difficult or unsafe to probe on the assembled board. After
+          this project, I became more deliberate about adding test access for power
+          rails, reset lines, communication signals, and important control nodes.
         </p>
 
         <h2>What I learned</h2>
+
         <p>
-          Close with the lesson, how your thinking changed, and what you would do
-          differently next time.
+          The Driver Dashboard taught me that a reliable PCB is not created by one
+          major feature. Reliability comes from many smaller decisions made
+          throughout the design process.
+        </p>
+
+        <p>
+          Component derating, thermal analysis, ESD protection, reverse-polarity
+          protection, decoupling, signal conditioning, debugging access, mechanical
+          placement, and clear communication between teams all contribute to whether
+          a system works consistently outside the lab.
+        </p>
+
+        <p>
+          The project also changed how I thought about microcontroller-based
+          hardware. The microcontroller may perform the computation, but its
+          reliability depends on the power, protection, filtering, communication,
+          and debugging circuitry surrounding it.
+        </p>
+
+        <p>
+          I also learned that technical design and team coordination cannot be
+          separated in a system-level project. A design decision that appears simple
+          to one subteam may create significant work for another. Clearly
+          communicating constraints, schedules, and implementation costs helps the
+          team make better decisions for the overall vehicle.
+        </p>
+
+        <p>
+          Integration meetings became more effective once I began providing context
+          beforehand, defining the decisions that needed to be made, and preventing
+          discussions from becoming focused on implementation details outside the
+          meeting’s purpose.
+        </p>
+
+        <p>
+          Most importantly, the DRD changed the question I ask when designing
+          hardware.
+        </p>
+
+        <p>
+          Instead of only asking, <strong>“Will this circuit work?”</strong>, I now
+          ask:
+        </p>
+
+        <p>
+          <strong>
+            “How can I make this circuit reliable, testable, and practical for the
+            people who need to use it?”
+          </strong>
         </p>
       </article>
     </main>

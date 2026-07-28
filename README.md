@@ -161,6 +161,21 @@ Keep the existing inner labels and icons for consistent styling.
 
 The Driver Dashboard post is stored at `posts/dashboard-blog.html`.
 
+To add an image inside a post, place it in `assets/` and add:
+
+```html
+<figure class="article-figure">
+  <img
+    src="../assets/your-blog-image.jpg"
+    alt="Describe what the image shows"
+    loading="lazy"
+  />
+  <figcaption>Optional image caption.</figcaption>
+</figure>
+```
+
+The `../` is required because blog posts are stored one folder below the site root.
+
 ## GitHub Pages
 
 Upload the complete contents of this folder to the root of the
